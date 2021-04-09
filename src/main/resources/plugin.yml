@@ -1,0 +1,7 @@
+name: SakuraEssentials
+main: com.entiv.sakuraessentials.Main
+version: 1.0
+author: EnTIv
+api-version: 1.16
+depend:
+  - BentoBox
