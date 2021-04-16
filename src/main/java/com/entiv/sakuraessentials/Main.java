@@ -1,5 +1,7 @@
 package com.entiv.sakuraessentials;
 
+import com.entiv.sakuraessentials.details.PlayerListener;
+import com.entiv.sakuraessentials.puplecrystal.WorldInitListener;
 import com.entiv.sakuraessentials.island.IslandCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,5 +30,6 @@ public class Main extends JavaPlugin {
 
     private void registerListener() {
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
+        Bukkit.getPluginManager().registerEvents(new WorldInitListener(), this);
     }
 }
