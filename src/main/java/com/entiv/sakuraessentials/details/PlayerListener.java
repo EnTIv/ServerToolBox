@@ -75,31 +75,6 @@ public class PlayerListener implements Listener {
 
 
     @EventHandler
-    public void test(EntityShootBowEvent event) {
-
-        StatisticBlock statisticBlock = new StatisticBlock(Main.getInstance());
-
-        World world = Bukkit.getWorld("world_resource");
-
-        Location min = new Location(world, 0, 0, 0);
-        Location max = new Location(world, 100, 130, 100);
-
-        Set<Material> blocks = new HashSet<>();
-        blocks.add(Material.DIAMOND_ORE);
-        blocks.add(Material.MUSHROOM_STEM);
-
-//        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
-//            Map<Material, Integer> result = statisticBlock.statisticBlocks(world, min, max, blocks);
-//            result.forEach((k, v) -> System.out.println(k + ": " + v));
-//        });
-
-        CompletableFuture<Map<Material, Integer>> future = statisticBlock.callTaskFutureAsync(() -> statisticBlock.statisticBlocks(world, min, max, blocks));
-
-//        future.thenAccept((result) -> result.forEach((k, v) -> System.out.println(k + ": " + v)));
-        future.whenComplete((k, v) -> System.out.println("结果2: " + k + ": " + v));
-    }
-
-    @EventHandler
     public void onAdvancementDone(PlayerAdvancementDoneEvent event) {
         Player player = event.getPlayer();
         Advancement advancement = event.getAdvancement();

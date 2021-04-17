@@ -23,40 +23,6 @@ public class StatisticBlock {
         this.plugin = plugin;
     }
 
-    public static void demo() {
-
-//        StatisticBlock statisticBlock = new StatisticBlock(Main.getInstance());
-//        CompletableFuture<Map<Material, Integer>> future = statisticBlock.callTaskFutureAsync(() -> {
-//
-//            World world = Bukkit.getWorld("world_resource");
-//
-//            Location min = new Location(world, 0, 0, 0);
-//            Location max = new Location(world, 10, 10, 10);
-//
-//            Set<Material> blocks = new HashSet<>();
-//            blocks.add(Material.DIAMOND_ORE);
-//            blocks.add(Material.MUSHROOM_STEM);
-//
-//            return statisticBlock.statisticBlocks(world, min, max, blocks);
-//        });
-//
-//        future.thenAccept((result) -> result.forEach((k, v) -> System.out.println(k + ": " + v)));
-
-//        StatisticBlock statisticBlock = new StatisticBlock(Main.getInstance());
-//        World world = Bukkit.getWorld("world_resource");
-//
-//        Location min = new Location(world, 0, 0, 0);
-//        Location max = new Location(world, 10, 10, 10);
-//
-//        Set<Material> blocks = new HashSet<>();
-//        blocks.add(Material.DIAMOND_ORE);
-//        blocks.add(Material.MUSHROOM_STEM);
-//
-//        Map<Material, Integer> map = statisticBlock.statisticBlocks(world, min, max, blocks);
-//        map.forEach((k, v) -> System.out.println(k + ": " + v));
-
-    }
-
     public <T> CompletableFuture<T> callTaskFutureAsync(Callable<T> callable) {
         CompletableFuture<T> future = new CompletableFuture<>();
         FutureTask<T> futureTask = new FutureTask<>(callable);

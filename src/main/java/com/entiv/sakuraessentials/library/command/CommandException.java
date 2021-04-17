@@ -27,22 +27,27 @@ public class CommandException extends RuntimeException {
 
             case INFO:
 
-                Message.sendTip(sender, message, variables);
+                Message.sendTip((Player) sender, message, variables);
                 break;
 
             case WARN:
 
-                Message.sendWarn(sender, message, variables);
+                Message.sendWarn((Player) sender, message, variables);
                 break;
 
             case ERROR:
 
-                Message.sendError(sender, message, variables);
+                Message.sendError((Player) sender, message, variables);
+                break;
+
+            case DEFAULT:
+
+                Message.send(sender, message, variables);
                 break;
         }
     }
 
     public enum MessageType {
-        INFO,WARN, ERROR,
+        INFO, WARN, ERROR, DEFAULT
     }
 }

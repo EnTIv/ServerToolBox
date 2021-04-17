@@ -15,7 +15,19 @@ import static com.entiv.sakuraessentials.library.message.Format.toColor;
 
 public class Message {
 
-    public static void sendTip(CommandSender player, String message, String... variables) {
+    public static void send(CommandSender sender, String message, String... variables) {
+
+        Component textComponent = Component.text("")
+                .append(Component.text(message));
+
+        if (variables.length > 1) {
+            textComponent = replaceVariables(textComponent, variables);
+        }
+
+        sender.sendMessage(textComponent);
+    }
+
+    public static void sendTip(Player player, String message, String... variables) {
 
         Component textComponent = Component.text("ꑠ ")
                 .append(Component.text(message, TextColor.color(0xccffce)));
@@ -27,7 +39,7 @@ public class Message {
         player.sendMessage(textComponent);
     }
 
-    public static void sendWarn(CommandSender player, String message, String... variables) {
+    public static void sendWarn(Player player, String message, String... variables) {
 
         Component textComponent = Component.text("ꑟ ")
                 .append(Component.text(message, TextColor.color(0xf2cc6d)));
@@ -39,7 +51,7 @@ public class Message {
         player.sendMessage(textComponent);
     }
 
-    public static void sendError(CommandSender player, String message, String... variables) {
+    public static void sendError(Player player, String message, String... variables) {
 
         Component textComponent = Component.text("ꑜ ")
                 .append(Component.text(message, NamedTextColor.RED));

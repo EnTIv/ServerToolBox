@@ -1,4 +1,4 @@
-package com.entiv.sakuraessentials.puplecrystal;
+package com.entiv.sakuraessentials.magiccrystal;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
-public class PurpleCrystalPopulator extends BlockPopulator {
+public class MagicCrystalPopulator extends BlockPopulator {
 
     private static final int TRY_COUNT = 2;
 
@@ -40,13 +40,11 @@ public class PurpleCrystalPopulator extends BlockPopulator {
         while (world.getBlockAt(x, y, z).getType() == Material.STONE) {
 
             // 生成矿脉的概率, 由于可能会重复, 如 x+1 后 x-1, 所以实际概率会更低
+            // 当概率小于 90 时, 平均矿脉数量为 4.8917
             if (random.nextInt(100) < 90) {
 
                 Block block = world.getBlockAt(x, y, z);
-                BlockData blockData = Bukkit.createBlockData(Material.MUSHROOM_STEM, "[up=false,down=false,north=false,south=false,west=false,east=false]");
-
-                block.setType(Material.MUSHROOM_STEM, false);
-                block.setBlockData(blockData);
+                MagicCrystal.setMagicCrystal(block);
 
                 // 方向选择器
                 switch (random.nextInt(6)) {
