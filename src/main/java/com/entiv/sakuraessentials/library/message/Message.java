@@ -15,16 +15,10 @@ import static com.entiv.sakuraessentials.library.message.Format.toColor;
 
 public class Message {
 
-    public static void send(CommandSender sender, String message, String... variables) {
+    public static void send(CommandSender sender, String message) {
 
-        Component textComponent = Component.text("")
-                .append(Component.text(message));
-
-        if (variables.length > 1) {
-            textComponent = replaceVariables(textComponent, variables);
-        }
-
-        sender.sendMessage(textComponent);
+        if (message == null) return;
+        sender.sendMessage(toColor(message));
     }
 
     public static void sendTip(Player player, String message, String... variables) {

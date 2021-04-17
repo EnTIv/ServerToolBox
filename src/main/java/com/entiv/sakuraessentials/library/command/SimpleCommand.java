@@ -83,10 +83,6 @@ public abstract class SimpleCommand extends Command {
         if (simpleCommand.isPlayerOnly && simpleCommand.sender instanceof ConsoleCommandSender) {
             Message.sendConsole("&c该命令只能由玩家执行");
             return true;
-        } else if (simpleCommand.isAdminCommand && !simpleCommand.sender.isOp()) {
-            //TODO 如果能返回上一个子命令更好
-//            Message.sendError(simpleCommand.sender,"你没有权限这么做");
-            return true;
         }
 
         try {

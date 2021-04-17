@@ -1,23 +1,14 @@
 package com.entiv.sakuraessentials.magiccrystal;
 
-import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
-import com.comphenix.protocol.events.PacketContainer;
-import com.comphenix.protocol.wrappers.BlockPosition;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockDamageEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.world.WorldInitEvent;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class MagicCrystalListener implements Listener {
 
@@ -35,6 +26,20 @@ public class MagicCrystalListener implements Listener {
     @EventHandler
     public void onBlockBreakEvent(BlockBreakEvent event) {
         Block block = event.getBlock();
-//        System.out.println(MagicCrystal.isMagicCrystal(block));
+        if (MagicCrystal.isMagicCrystal(block)) {
+            event.setDropItems(false);
+            Location location = block.getLocation();
+            World world = location.getWorld();
+            world.dropItem(location, MagicCrystal.getMagicCrystalItem(1));
+        }
+    }
+
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent event) {
+        Block block = event.getBlock();
+
+        if (block.getType().equals(Material.MUSHROOM_STEM)) {
+            event.setCancelled(true);
+        }
     }
 }

@@ -42,7 +42,7 @@ public class CommandException extends RuntimeException {
 
             case DEFAULT:
 
-                Message.send(sender, message, variables);
+                Message.send(sender, message);
                 break;
         }
     }

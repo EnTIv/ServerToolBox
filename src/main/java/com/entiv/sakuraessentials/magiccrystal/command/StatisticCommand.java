@@ -26,7 +26,7 @@ public class StatisticCommand extends SimpleCommand {
     @Override
     public void onCommand() {
 
-        Message.sendConsole("统计数据中, 这可能需要一些时间...");
+        Message.send(sender, "§6统计数据中, 这可能需要一些时间...");
         StatisticBlock statisticBlock = new StatisticBlock(Main.getInstance());
 
         World world = Bukkit.getWorld("world_resource");
@@ -42,10 +42,10 @@ public class StatisticCommand extends SimpleCommand {
             Map<Material, Integer> result = statisticBlock.statisticBlocks(world, min, max, blocks);
 
             if (result.isEmpty()) {
-                Message.sendConsole("魔晶矿统计完毕, 未找到魔晶矿");
+                Message.send(sender, "魔晶矿统计完毕, 未找到魔晶矿");
             } else {
-                Message.sendConsole("魔晶矿统计完毕, 列出统计结果:");
-                result.forEach((k, v) -> Message.send(sender, k + ": " + v));
+                Message.send(sender, "§6魔晶矿统计完毕, 列出统计结果:");
+                result.forEach((k, v) -> Message.send(sender, "§a" + k + ": §b" + v));
             }
         });
     }

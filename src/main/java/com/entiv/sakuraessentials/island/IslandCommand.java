@@ -22,6 +22,7 @@ public class IslandCommand extends SimpleCommand {
 
     @Override
     public void onCommand() {
+        //TODO 如果没有岛屿就领取岛屿
         sendSubCommandHelp("岛屿指令帮助");
     }
 

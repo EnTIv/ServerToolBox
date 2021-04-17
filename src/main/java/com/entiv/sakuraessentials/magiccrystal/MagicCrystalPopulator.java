@@ -2,7 +2,6 @@ package com.entiv.sakuraessentials.magiccrystal;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.generator.BlockPopulator;
 import org.jetbrains.annotations.NotNull;
 
@@ -44,7 +43,7 @@ public class MagicCrystalPopulator extends BlockPopulator {
             if (random.nextInt(100) < 90) {
 
                 Block block = world.getBlockAt(x, y, z);
-                MagicCrystal.setMagicCrystal(block);
+                MagicCrystal.setMagicCrystalBlock(block);
 
                 // 方向选择器
                 switch (random.nextInt(6)) {

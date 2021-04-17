@@ -27,7 +27,6 @@ public class FindCommand extends SimpleCommand {
 
         Player player = getPlayer();
         Location location = player.getLocation();
-        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 1000, -1, false, false));
 
         World world = location.getWorld();
 
