@@ -42,5 +42,6 @@ public class Main extends JavaPlugin {
     private void registerListener() {
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
         Bukkit.getPluginManager().registerEvents(new MagicCrystalListener(), this);
+        System.out.println("啊这");
     }
 }

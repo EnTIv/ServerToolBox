@@ -12,6 +12,7 @@ import org.bukkit.event.world.WorldInitEvent;
 
 public class MagicCrystalListener implements Listener {
 
+    //TODO 添加拾取或点击自动转化为数字水晶矿
     @EventHandler
     public void onWorldInit(WorldInitEvent event) {
 
