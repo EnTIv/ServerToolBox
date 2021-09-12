@@ -1,0 +1,63 @@
+# 设置世界重生点, 我一般用来给 pvp 世界单独一个重生点, 这样就不用玩家整天 back 了
+设置世界重生点:
+  启用: false
+  世界列表:
+    # 世界名: x, y, z, yaw(玩家左右扭头的角度), pitch(玩家上下扭头的角度)
+    world_pvp: "-0.5, 100, 0.5, -90, 0"
+
+# 设置玩家的命令补全, 这样玩家就不会补全出没权限的指令了
+# 玩家需要退出游戏重进才会生效
+设置命令补全:
+  启用: false
+  补全列表:
+    - "tpa"
+    - "tpahere"
+    - "tpaccept"
+
+    - "home"
+    - "sethome"
+    - "delhome"
+
+    - "back"
+    - "spawn"
+
+    - "kit"
+
+    - "t"
+    - "tell"
+    - "m"
+    - "msg"
+
+    - "r"
+    - "reply"
+
+    - "is"
+    - "island"
+
+    - "bal"
+    - "baltop"
+
+    - "co"
+
+# 因为不想用原版的地狱门所以整了个地狱们随机传送, 会取消生物进入地狱门功能, 并且执行一个指令
+# 还能防止一些通过地狱门刷东西的bug: 地狱门+驴 地狱门+漏斗矿车 等, 在 1.12.2 版本我曾经被这两个 BUG 折磨得痛不欲生
+# 常用的随机传送插件有: betterrtp, essentialsX, residence 等
+地狱门随机传送:
+  启用: false
+  世界列表:
+    # 在 world_nether 世界进入地狱门时执行的指令, 传送到 world 世界
+    world_nether: "rtp world world"
+    # 在 world 世界进入地狱门时执行的指令, 传送到 world_nether 世界
+    world: "rtp world world_nether"
+
+
+# 防止绑定诅咒南瓜头之类的戴上脱不下的物品, 只要是无限耐久的物品绑定诅咒都无法成功附魔
+反无限耐久绑定:
+  启用: false
+
+
+# 物品丢弃保护, 全局禁止玩家丢弃物品, 防止误丢弃, 使用 /drop 指令暂时允许丢弃
+物品丢弃保护:
+  启用: false
+  # 使用 /drop 指令后 100 tick 内允许丢弃 (20 tick = 1 秒, 100 tick = 5 秒)
+  允许丢弃时长: 100

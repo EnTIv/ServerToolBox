@@ -50,9 +50,10 @@ dependencies {
     compileOnly 'net.ess3:EssentialsX:2.17.2'
     compileOnly 'world.bentobox:bentobox:1.16.1-SNAPSHOT'
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.6.0";
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly 'world.bentobox:bentobox:1.17.1'
 //    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
 }
 
 [compileJava,compileTestJava]*.options*.encoding = 'UTF-8'
-libsDirName = 'C:\\Users\\EnTIv\\Desktop\\minecraft\\server\\rpg\\plugins'
+libsDirName = 'C:\\Users\\EnTIv\\Desktop\\minecraft\\server\\paper-1.17\\plugins'
