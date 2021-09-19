@@ -1,7 +1,10 @@
-name: SakuraEssentials
-main: com.entiv.sakuraessentials.Main
-version: 1.0
+name: ServerToolBox
+main: com.entiv.servertoolbox.Main
+version: 1.5
 author: EnTIv
-api-version: 1.16
-depend:
-  - BentoBox
+
+commands:
+  ServerToolBox:
+    description: test
+  Drop:
+    description: test

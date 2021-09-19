@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.entiv'
-version '1.0'
+version '1.5'
 
 repositories {
 
@@ -31,6 +31,16 @@ repositories {
         name "Bentobox"
         url "https://repo.codemc.org/repository/maven-public"
     }
+
+//    maven {
+//        name "WorldGuard"
+//        url "https://maven.enginehub.org/repo/"
+//    }
+
+    maven {
+        name "WorldGuard"
+        url "http://maven.sk89q.com/repo/"
+    }
 }
 
 processResources {
@@ -47,13 +57,13 @@ processResources {
 dependencies {
 //    compileOnly 'fr.xephi:authme:5.6.0-SNAPSHOT'
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
-    compileOnly 'net.ess3:EssentialsX:2.17.2'
-    compileOnly 'world.bentobox:bentobox:1.16.1-SNAPSHOT'
-    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.6.0";
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly 'world.bentobox:bentobox:1.17.1'
+//    compileOnly 'net.ess3:EssentialsX:2.17.2'
+//    compileOnly 'world.bentobox:bentobox:1.16.1-SNAPSHOT'
+//    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.6.0"
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//    compileOnly 'world.bentobox:bentobox:1.17.1'
 //    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
 }
 
-[compileJava,compileTestJava]*.options*.encoding = 'UTF-8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 libsDirName = 'C:\\Users\\EnTIv\\Desktop\\minecraft\\server\\paper-1.17\\plugins'
