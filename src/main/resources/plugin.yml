@@ -2,6 +2,7 @@ name: ServerToolBox
 main: com.entiv.servertoolbox.Main
 version: 1.6
 author: EnTIv
+api-version: 1.13
 
 commands:
   ServerToolBox:
