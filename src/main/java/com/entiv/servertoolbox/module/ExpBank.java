@@ -16,7 +16,7 @@ import java.util.List;
 public class ExpBank extends Module implements Listener {
 
     @Override
-    protected void enable() {
+    protected void onEnable() {
         registerListener();
     }
 

@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 public class BindingCursePatch extends Module implements Listener {
 
     @Override
-    protected void enable() {
+    protected void onEnable() {
         registerListener();
     }
 

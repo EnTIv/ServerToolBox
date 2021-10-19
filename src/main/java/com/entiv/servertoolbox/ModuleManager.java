@@ -26,13 +26,14 @@ public class ModuleManager {
         loadModule(ExpBank.class, "经验银行");
         loadModule(PortalCommand.class, "地狱门随机传送");
         loadModule(WorldRespawnPoint.class, "设置世界重生点");
+        loadModule(DenyLightningDestroyItem.class, "防止雷电破坏掉落物");
     }
 
     private void loadModule(Class<? extends Module> moduleClass, String moduleName) {
         try {
 
             Module module = moduleClass.newInstance();
-            if (Main.getInstance().getConfig().getBoolean(moduleName + ".启用", false) && module.isEnable()) {
+            if (Main.getInstance().getConfig().getBoolean(moduleName + ".启用", false) && module.canEnable()) {
                 module.load(plugin, moduleName);
                 Message.sendConsole("&9" + Main.getInstance().getName() + "&6 >> &a模块&e " + moduleName + " &a已启用");
 

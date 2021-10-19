@@ -21,7 +21,7 @@ public class DropProtect extends Module implements Listener, CommandExecutor {
     private List<UUID> allowPlayers;
 
     @Override
-    public void enable() {
+    public void onEnable() {
         allowPlayers = new ArrayList<>();
 
         registerListener();

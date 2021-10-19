@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerPortalEvent;
 public class PortalCommand extends Module implements Listener {
 
     @Override
-    protected void enable() {
+    protected void onEnable() {
         registerListener();
     }
 

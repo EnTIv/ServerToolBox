@@ -24,13 +24,7 @@ public class Main extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(message);
 
         saveDefaultConfig();
-        registerListener();
-
         moduleManager.loadModules();
-    }
-
-    private void registerListener() {
-        Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
     }
 
     @Override

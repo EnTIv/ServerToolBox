@@ -16,7 +16,7 @@ public class DenyAdvancementMessage extends Module implements Listener {
     private final boolean enable = config.getBoolean("隐藏成就消息.启用");
 
     @Override
-    public void enable() {
+    public void onEnable() {
         for (World world : Bukkit.getWorlds()) {
             world.setGameRuleValue("announceAdvancements", enable ? "false" : "true");
         }

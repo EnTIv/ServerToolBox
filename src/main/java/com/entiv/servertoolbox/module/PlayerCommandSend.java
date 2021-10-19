@@ -14,7 +14,7 @@ import java.util.Collection;
 public class PlayerCommandSend extends Module implements Listener {
 
     @Override
-    public void enable() {
+    public void onEnable() {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 

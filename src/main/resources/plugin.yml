@@ -1,10 +1,10 @@
 name: ServerToolBox
 main: com.entiv.servertoolbox.Main
-version: 1.5
+version: 1.6
 author: EnTIv
 
 commands:
   ServerToolBox:
-    description: test
+    description: description
   Drop:
-    description: test
+    description: description

@@ -3,6 +3,7 @@ package com.entiv.servertoolbox.module;
 import com.entiv.servertoolbox.Module;
 import com.entiv.servertoolbox.utils.CommandUtil;
 import com.entiv.servertoolbox.utils.Message;
+import com.entiv.servertoolbox.utils.XMaterial;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -27,7 +28,7 @@ public class VerificationCode extends Module implements Listener {
     private BukkitRunnable runnable;
 
     @Override
-    protected void enable() {
+    protected void onEnable() {
         registerListener();
         setRunnable(config.getInt("触发概率"), config.getInt("检测间隔") * 20);
     }
@@ -132,7 +133,9 @@ public class VerificationCode extends Module implements Listener {
         }
 
         private ItemStack verificationButton() {
-            ItemStack itemStack = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
+            ItemStack itemStack = XMaterial.LIME_STAINED_GLASS_PANE.parseItem();
+            if (itemStack == null) itemStack = new ItemStack(Material.STONE);
+
             String displayName = config.getString("验证通过按钮");
 
             ItemMeta itemMeta = itemStack.getItemMeta();
@@ -143,7 +146,8 @@ public class VerificationCode extends Module implements Listener {
         }
 
         private ItemStack otherButton() {
-            return new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
+            ItemStack itemStack = XMaterial.RED_STAINED_GLASS_PANE.parseItem();
+            return itemStack == null ? new ItemStack(Material.STONE): itemStack;
         }
     }
 }

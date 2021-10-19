@@ -1,6 +1,5 @@
 package com.entiv.servertoolbox;
 
-import com.entiv.servertoolbox.Main;
 import com.entiv.servertoolbox.utils.Message;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
@@ -25,16 +24,16 @@ public abstract class Module {
 
         config = plugin.getConfig().getConfigurationSection(name);
 
-        enable();
+        onEnable();
     }
 
-    protected abstract void enable();
+    protected abstract void onEnable();
 
     protected void unload() {
         unregister();
     }
 
-    public boolean isEnable() {
+    public boolean canEnable() {
         return true;
     }
 

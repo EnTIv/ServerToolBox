@@ -19,7 +19,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 public class WorldRespawnPoint extends Module implements Listener {
 
     @Override
-    protected void enable() {
+    protected void onEnable() {
         registerListener();
     }
 

@@ -15,7 +15,7 @@ import java.util.Objects;
 public class EntityTargetController extends Module implements Listener {
 
     @Override
-    protected void enable() {
+    protected void onEnable() {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
