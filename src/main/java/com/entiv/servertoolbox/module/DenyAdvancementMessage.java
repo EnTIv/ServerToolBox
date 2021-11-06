@@ -30,8 +30,4 @@ public class DenyAdvancementMessage extends Module implements Listener {
         world.setGameRuleValue("announceAdvancements", enable ? "false" : "true");
     }
 
-    @Override
-    protected void unload() {
-        HandlerList.unregisterAll(this);
-    }
 }

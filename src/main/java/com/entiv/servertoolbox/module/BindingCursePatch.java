@@ -17,11 +17,6 @@ public class BindingCursePatch extends Module implements Listener {
         registerListener();
     }
 
-    @Override
-    protected void unload() {
-        HandlerList.unregisterAll(this);
-    }
-
     @EventHandler
     public void onEnchant(PrepareAnvilEvent event) {
 

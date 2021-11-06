@@ -27,6 +27,8 @@ public class ModuleManager {
         loadModule(PortalCommand.class, "地狱门随机传送");
         loadModule(WorldRespawnPoint.class, "设置世界重生点");
         loadModule(DenyLightningDestroyItem.class, "防止雷电破坏掉落物");
+        loadModule(DenyEnchantmentBookSpawn.class, "移除原版附魔物品生成");
+        loadModule(EasyLogin.class, "简易登录");
     }
 
     private void loadModule(Class<? extends Module> moduleClass, String moduleName) {

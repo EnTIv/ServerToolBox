@@ -8,6 +8,10 @@ version '1.6'
 repositories {
 
     maven {
+        url 'https://papermc.io/repo/repository/maven-public/'
+    }
+
+    maven {
         name "Paper"
         url 'https://papermc.io/repo/repository/maven-public/'
     }
@@ -32,11 +36,6 @@ repositories {
         url "https://repo.codemc.org/repository/maven-public"
     }
 
-//    maven {
-//        name "WorldGuard"
-//        url "https://maven.enginehub.org/repo/"
-//    }
-
     maven {
         name "WorldGuard"
         url "http://maven.sk89q.com/repo/"
@@ -55,14 +54,17 @@ processResources {
 
 
 dependencies {
-//    compileOnly 'fr.xephi:authme:5.6.0-SNAPSHOT'
+    compileOnly 'fr.xephi:authme:5.6.0-SNAPSHOT'
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
+    compileOnly "me.clip:placeholderapi:2.10.9"
+
 //    compileOnly 'net.ess3:EssentialsX:2.17.2'
 //    compileOnly 'world.bentobox:bentobox:1.16.1-SNAPSHOT'
 //    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.6.0"
 //    compile fileTree(dir: 'libs', include: ['*.jar'])
 //    compileOnly 'world.bentobox:bentobox:1.17.1'
-    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+//    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+//    compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
 }
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
