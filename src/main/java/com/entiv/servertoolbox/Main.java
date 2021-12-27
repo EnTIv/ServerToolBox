@@ -15,8 +15,7 @@ public class Main extends JavaPlugin {
 
     private static Main plugin;
     private final ModuleManager moduleManager = new ModuleManager(this);
-
-    private boolean debug = true;
+    private boolean debug = false;
 
     @Override
     public void onEnable() {

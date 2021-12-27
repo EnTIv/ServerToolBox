@@ -29,13 +29,17 @@ public class ModuleManager {
         loadModule(DenyLightningDestroyItem.class, "防止雷电破坏掉落物");
         loadModule(DenyEnchantmentBookSpawn.class, "移除原版附魔物品生成");
         loadModule(EasyLogin.class, "简易登录");
+        loadModule(FanCount.class, "粉丝计数器");
+        loadModule(MiningCount.class, "挖掘计数器");
+
     }
+
 
     private void loadModule(Class<? extends Module> moduleClass, String moduleName) {
         try {
 
             Module module = moduleClass.newInstance();
-            if (Main.getInstance().getConfig().getBoolean(moduleName + ".启用", false) && module.canEnable()) {
+            if (Main.getInstance().getConfig().getBoolean(moduleName + ".启用", true) && module.canEnable()) {
                 module.load(plugin, moduleName);
                 Message.sendConsole("&9" + Main.getInstance().getName() + "&6 >> &a模块&e " + moduleName + " &a已启用");
 

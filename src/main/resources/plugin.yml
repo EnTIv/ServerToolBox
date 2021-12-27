@@ -4,7 +4,7 @@ version: 1.6
 author: EnTIv
 api-version: 1.13
 softdepend:
-  - Placeholder
+  - PlaceholderAPI
   - Authme
 
 commands:
