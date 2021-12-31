@@ -2,7 +2,6 @@ package com.entiv.servertoolbox;
 
 
 import com.entiv.servertoolbox.utils.Message;
-import com.sun.javafx.binding.StringFormatter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -44,7 +43,7 @@ public class Main extends JavaPlugin {
             moduleManager.unloadAllModule();
             moduleManager.loadModules();
 
-            Message.sendConsole("&9" + Main.getInstance().getName() + "&6 >> &a插件重载成功");
+            Message.send(sender, "&9" + Main.getInstance().getName() + "&6 >> &a插件重载成功");
 
         }
         return true;
@@ -54,7 +53,7 @@ public class Main extends JavaPlugin {
         return plugin;
     }
 
-    public static void debug(String message,Object... objects) {
+    public static void debug(String message, Object... objects) {
         if (getInstance().isDebug()) {
             Bukkit.getLogger().log(Level.INFO, MessageFormat.format(message, objects));
         }

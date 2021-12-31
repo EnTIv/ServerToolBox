@@ -31,6 +31,8 @@ public abstract class Module {
 
     protected void unload() {
         unregister();
+
+        Message.sendConsole("&9" + Main.getInstance().getName() + "&6 >> &c模块 &e" + name + "&c 已卸载");
     }
 
     public boolean canEnable() {
@@ -56,7 +58,5 @@ public abstract class Module {
 
         if (command != null) command.setExecutor(null);
         if (listener != null) HandlerList.unregisterAll(listener);
-
-        Message.sendConsole("&9" + Main.getInstance().getName() + "&6 >> &c模块 &e" + name + "&c 已卸载");
     }
 }

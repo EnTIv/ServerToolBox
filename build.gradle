@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.entiv'
-version '1.7'
+version '1.8'
 
 repositories {
 
@@ -42,7 +42,7 @@ repositories {
 
     maven {
         name "WorldGuard"
-        url "http://maven.sk89q.com/repo/"
+        url "https://maven.sk89q.com/repo/"
     }
 }
 
