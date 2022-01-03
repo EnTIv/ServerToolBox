@@ -14,3 +14,5 @@ commands:
     description: description
   AutoTool:
     description: description
+  CleanChat:
+    description: description
