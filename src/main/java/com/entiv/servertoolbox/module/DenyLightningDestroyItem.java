@@ -12,6 +12,11 @@ import static org.bukkit.event.entity.EntityDamageEvent.DamageCause.LIGHTNING;
 
 public class DenyLightningDestroyItem extends Module implements Listener {
 
+    @Override
+    protected void onEnable() {
+        registerListener();
+    }
+
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageEvent event) {
 
@@ -23,10 +28,5 @@ public class DenyLightningDestroyItem extends Module implements Listener {
         if (cause.equals(LIGHTNING) || cause.equals(FIRE_TICK)) {
             event.setCancelled(true);
         }
-    }
-
-    @Override
-    protected void onEnable() {
-        registerListener();
     }
 }

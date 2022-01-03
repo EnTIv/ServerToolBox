@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.entiv'
-version '1.8'
+version '1.9.1'
 
 repositories {
 
@@ -49,6 +49,7 @@ repositories {
 processResources {
     from(sourceSets.main.resources.srcDirs) {
         include 'plugin.yml'
+        duplicatesStrategy = 'INCLUDE'
         expand(
                 version: project.version,
                 name: rootProject.name.toLowerCase()

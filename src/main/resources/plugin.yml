@@ -1,6 +1,6 @@
 name: ServerToolBox
 main: com.entiv.servertoolbox.Main
-version: 1.6
+version: ${version}
 author: EnTIv
 api-version: 1.13
 softdepend:
@@ -11,4 +11,6 @@ commands:
   ServerToolBox:
     description: description
   Drop:
+    description: description
+  AutoTool:
     description: description

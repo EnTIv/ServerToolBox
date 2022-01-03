@@ -33,7 +33,7 @@ public class WorldEnterPermission extends Module implements Listener {
         for (String name : section.getKeys(false)) {
             String permission = "enterworld." + name;
 
-            if (!player.hasPermission(permission)) {
+            if (!player.hasPermission(permission) && player.getWorld().getName().equals(name)) {
                 CommandUtil.execute(player, section.getStringList(name));
             }
         }

@@ -29,7 +29,8 @@ public class MiningCount extends Module implements Listener {
         final Player player = event.getPlayer();
         final ItemStack itemStack = player.getInventory().getItemInMainHand();
 
-        if (itemStack.getType().toString().contains("PICKAXE")) {
+        final List<String> nameList = config.getStringList("需要计数的工具");
+        if (nameList.contains(itemStack.getType().toString())) {
 
             final ItemMeta itemMeta = itemStack.getItemMeta();
             final List<String> lore = itemMeta.getLore();
