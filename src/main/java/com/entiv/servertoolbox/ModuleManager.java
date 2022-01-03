@@ -2,9 +2,6 @@ package com.entiv.servertoolbox;
 
 import com.entiv.servertoolbox.module.*;
 import com.entiv.servertoolbox.utils.Message;
-import org.bukkit.Bukkit;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -34,12 +31,14 @@ public class ModuleManager {
         loadModule(EasyLogin.class, "简易登录");
         loadModule(FanCount.class, "粉丝计数器");
         loadModule(MiningCount.class, "挖掘计数器");
-        loadModule(AntiFastLeverAction.class, "反快速拉杆");
+        loadModule(LeverSpeedLimit.class, "反快速拉杆");
         loadModule(AntiExplode.class, "爆炸保护");
         loadModule(FarmProtection.class, "农田防踩踏");
         loadModule(AutoTool.class, "自动化工具");
         loadModule(FarmProtection.class, "农田防踩踏");
         loadModule(WorldItemBlacklist.class, "世界物品黑名单");
+        loadModule(FarmProtection.class, "反快速指令");
+        loadModule(WorldItemBlacklist.class, "反聊天刷屏");
     }
 
     private void loadModule(Class<? extends Module> moduleClass, String moduleName) {

@@ -9,14 +9,14 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.UUID;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-public class AntiFastLeverAction extends Module implements Listener {
+public class CommandSpeedLimit extends Module implements Listener {
 
     private Cache<UUID, Integer> cache;
 
@@ -28,12 +28,9 @@ public class AntiFastLeverAction extends Module implements Listener {
     }
 
     @EventHandler
-    private void onInteract(PlayerInteractEvent event) throws ExecutionException {
+    private void onInteract(PlayerCommandPreprocessEvent event) throws ExecutionException {
         final Player player = event.getPlayer();
         final UUID uniqueId = player.getUniqueId();
-        final Block clickedBlock = event.getClickedBlock();
-
-        if (clickedBlock == null || !clickedBlock.getType().equals(Material.LEVER)) return;
 
         final Integer count = cache.get(uniqueId, () -> 0);
 
