@@ -191,3 +191,13 @@
 # 也可以使用指令 /CleanChat 手动清理聊天屏幕
 加入清理聊天屏幕:
   启用: false
+
+世界指令黑名单:
+  启用: false
+  世界列表:
+    world_nether:
+      - /fly
+      - /cmi spawn
+    world_test:
+      - /fly
+  提示消息: 该指令无法在这个世界使用

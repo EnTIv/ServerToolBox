@@ -21,6 +21,12 @@ public class Message {
         sender.sendMessage(toColor(message));
     }
 
+    public static void send(CommandSender sender, String... messages) {
+        if (messages == null) return;
+        sender.sendMessage(toColor(messages));
+    }
+
+
     public static void sendConfigMessage(JavaPlugin plugin, CommandSender sender, String path) {
         String message = plugin.getConfig().getString(path);
         Message.send(sender, message);

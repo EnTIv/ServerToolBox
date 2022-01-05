@@ -39,6 +39,8 @@ public class ModuleManager {
         loadModule(WorldItemBlacklist.class, "世界物品黑名单");
         loadModule(FarmProtection.class, "反快速指令");
         loadModule(WorldItemBlacklist.class, "反聊天刷屏");
+        loadModule(WorldCommandBlacklist.class, "世界指令黑名单");
+
     }
 
     private void loadModule(Class<? extends Module> moduleClass, String moduleName) {
