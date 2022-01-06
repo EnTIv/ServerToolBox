@@ -40,7 +40,7 @@ public class ModuleManager {
         loadModule(FarmProtection.class, "反快速指令");
         loadModule(WorldItemBlacklist.class, "反聊天刷屏");
         loadModule(WorldCommandBlacklist.class, "世界指令黑名单");
-
+        loadModule(KeywordFiltering.class, "违禁词屏蔽");
     }
 
     private void loadModule(Class<? extends Module> moduleClass, String moduleName) {
