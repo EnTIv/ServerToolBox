@@ -24,7 +24,6 @@ public class KeywordFiltering extends Module implements Listener {
 
     @EventHandler
     private void onChat(AsyncPlayerChatEvent event) {
-        Main.debug("提示消息为：{0}", "12");
 
         if (!config.getBoolean("聊天检测")) {
             return;
@@ -33,10 +32,11 @@ public class KeywordFiltering extends Module implements Listener {
         final Player player = event.getPlayer();
         final String message = event.getMessage();
 
-        Main.debug("提示消息为：{0}", message);
         if (player.isOp()) {
             return;
         }
+
+        Main.debug("检测消息 \"{0}\" 是否存在违禁词: {1}", message, hasKeywords(message));
 
         if (hasKeywords(message)) {
             event.setCancelled(true);
@@ -56,6 +56,8 @@ public class KeywordFiltering extends Module implements Listener {
         if (player.isOp()) {
             return;
         }
+
+        Main.debug("检测消息 \"{0}\" 是否存在违禁词: {1}", message, hasKeywords(message));
 
         if (hasKeywords(message)) {
             event.setCancelled(true);
@@ -77,6 +79,10 @@ public class KeywordFiltering extends Module implements Listener {
         final ItemStack item = inventory.getItem(3);
 
         if (player.isOp() || item == null) return;
+
+        if (!item.getItemMeta().hasDisplayName()) {
+            return;
+        }
 
         final String displayName = item.getItemMeta().getDisplayName();
 

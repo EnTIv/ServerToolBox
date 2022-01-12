@@ -59,4 +59,14 @@ public abstract class Module {
         if (command != null) command.setExecutor(null);
         if (listener != null) HandlerList.unregisterAll(listener);
     }
+
+    protected ConfigurationSection getConfigSection(String path) {
+        final ConfigurationSection section = config.getConfigurationSection(path);
+
+        if (section == null) {
+            throw new NullPointerException("模块 " + name + " 配置文件路径 " + path + " 不存在，请检查配置文件");
+        }
+
+        return section;
+    }
 }

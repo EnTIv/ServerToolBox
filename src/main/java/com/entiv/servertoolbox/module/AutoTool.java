@@ -38,6 +38,10 @@ public class AutoTool extends Module implements Listener, CommandExecutor {
     private void onPlayerClickBlock(PlayerInteractEvent event) {
         final Player player = event.getPlayer();
 
+        if (disablePlayers.contains(player.getUniqueId())) {
+            return;
+        }
+
         if (!player.hasPermission(PERMISSION)) {
             return;
         }

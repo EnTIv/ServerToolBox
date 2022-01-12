@@ -16,3 +16,7 @@ commands:
     description: description
   CleanChat:
     description: description
+  ItemNameTag:
+    description: description
+    aliases:
+      - "int"

@@ -1,5 +1,6 @@
 package com.entiv.servertoolbox.module;
 
+import com.entiv.servertoolbox.Main;
 import com.entiv.servertoolbox.Module;
 import com.entiv.servertoolbox.utils.StringUtil;
 import org.apache.commons.lang.Validate;
@@ -13,8 +14,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 
 public class MiningCount extends Module implements Listener {
@@ -29,40 +28,45 @@ public class MiningCount extends Module implements Listener {
         final Player player = event.getPlayer();
         final ItemStack itemStack = player.getInventory().getItemInMainHand();
 
-        final List<String> nameList = config.getStringList("需要计数的工具");
-        if (nameList.contains(itemStack.getType().toString())) {
+        for (String toolName : config.getStringList("需要计数的工具")) {
 
-            final ItemMeta itemMeta = itemStack.getItemMeta();
-            final List<String> lore = itemMeta.getLore();
+            if (itemStack.getType().toString().contains("_"+toolName)) {
 
-            String key = config.getString("lore内容");
-            Validate.notNull(key, "配置文件错误，请检查配置文件");
+                final ItemMeta itemMeta = itemStack.getItemMeta();
+                final List<String> lore = itemMeta.getLore();
 
-            key = ChatColor.translateAlternateColorCodes('&', key);
+                String key = config.getString("lore内容");
+                Validate.notNull(key, "配置文件错误，请检查配置文件");
 
-            if (lore == null) {
-                final List<String> addLore = new ArrayList<>();
-                addLore.add(key.replace("%count%", "1"));
-                itemMeta.setLore(addLore);
-            } else {
-                for (int i = 0; i < lore.size(); i++) {
-                    final String s = lore.get(i);
+                key = ChatColor.translateAlternateColorCodes('&', key);
 
-                    key = ChatColor.stripColor(key.replace("%count%", ""));
+                if (lore == null || lore.isEmpty()) {
+                    final List<String> addLore = new ArrayList<>();
+                    addLore.add(key.replace("%count%", "1"));
+                    itemMeta.setLore(addLore);
+                } else {
+                    Main.debug("触发B");
 
-                    if (s.contains(key)) {
-                        int finalI = i;
+                    for (int i = 0; i < lore.size(); i++) {
+                        final String s = lore.get(i);
 
-                        StringUtil.findInt(s).stream().findFirst().ifPresent(count -> {
-                            lore.set(finalI, s.replace(String.valueOf(count), String.valueOf(count + 1)));
-                            itemMeta.setLore(lore);
-                        });
+                        key = ChatColor.stripColor(key.replace("%count%", ""));
 
+                        if (s.contains(key)) {
+                            int finalI = i;
+
+                            Main.debug("触发A");
+
+                            StringUtil.findInt(s).stream().findFirst().ifPresent(count -> {
+                                Main.debug("当前挖掘数量: {0}", count);
+                                lore.set(finalI, s.replace(String.valueOf(count), String.valueOf(count + 1)));
+                                itemMeta.setLore(lore);
+                            });
+                        }
                     }
                 }
+                itemStack.setItemMeta(itemMeta);
             }
-
-            itemStack.setItemMeta(itemMeta);
         }
     }
 }
