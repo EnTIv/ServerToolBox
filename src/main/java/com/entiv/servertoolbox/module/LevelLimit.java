@@ -26,9 +26,7 @@ public class LevelLimit extends Module implements Listener {
 
                 if (player.hasPermission(permission) && newLevel >= level) {
                     player.setLevel(level);
-
                 }
-
             }
         });
     }

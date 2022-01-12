@@ -100,7 +100,7 @@ public class ItemNameTag extends Module implements Listener, CommandExecutor {
             final ItemMeta itemMeta = itemStack.getItemMeta();
             itemMeta.setDisplayName(name);
             itemStack.setItemMeta(itemMeta);
-            inventory.remove(getItemNameTag());
+            inventory.removeItem(getItemNameTag());
 
             Message.send(sender, config.getString("提示消息.修改成功"));
 
