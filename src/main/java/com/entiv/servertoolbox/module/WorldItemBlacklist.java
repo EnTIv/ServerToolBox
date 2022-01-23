@@ -10,6 +10,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -34,6 +35,22 @@ public class WorldItemBlacklist extends Module implements Listener {
             CommandUtil.execute(player, config.getStringList("执行指令"));
         }
 
+    }
+
+    @EventHandler
+    private void onPlayerChangeWorld(InventoryClickEvent event) {
+        final Player player = event.getWhoClicked() instanceof Player ? ((Player) event.getWhoClicked()) : null;
+
+        if (player == null) return;
+
+        final World world = player.getWorld();
+
+        final List<String> worldList = config.getStringList("世界列表");
+
+        if (worldList.contains(world.getName()) && hasBlacklistItem(player)) {
+            CommandUtil.execute(player, config.getStringList("执行指令"));
+            event.setCancelled(true);
+        }
     }
 
     private boolean hasBlacklistItem(Player player) {

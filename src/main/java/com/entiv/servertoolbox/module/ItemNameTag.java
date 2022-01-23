@@ -58,9 +58,17 @@ public class ItemNameTag extends Module implements Listener, CommandExecutor {
             return true;
         }
 
-        if (args.length == 2 && args[0].equalsIgnoreCase("name")) {
+        if (args.length >= 2 && args[0].equalsIgnoreCase("name")) {
 
-            String name = args[1];
+            String name = "";
+
+            for (int i = 1; i < args.length; i++) {
+                name = name.concat(args[i]);
+                if (i + 1 < args.length) {
+                    name = name.concat(" ");
+                }
+            }
+
             final Player player = sender instanceof Player ? ((Player) sender) : null;
 
             if (player == null) {
@@ -71,7 +79,7 @@ public class ItemNameTag extends Module implements Listener, CommandExecutor {
             final PlayerInventory inventory = player.getInventory();
             final ItemStack itemStack = inventory.getItemInMainHand();
 
-            @SuppressWarnings("all")
+            @SuppressWarnings("ConstantConditions")
             final boolean hasItemNameTag = Arrays.stream(inventory.getStorageContents())
                     .filter(Objects::nonNull)
                     .anyMatch(item -> item.isSimilar(getItemNameTag()));
