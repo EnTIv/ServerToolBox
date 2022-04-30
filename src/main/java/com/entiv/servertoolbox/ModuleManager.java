@@ -42,6 +42,9 @@ public class ModuleManager {
         loadModule(WorldCommandBlacklist.class, "世界指令黑名单");
         loadModule(KeywordFiltering.class, "违禁词屏蔽");
         loadModule(ItemNameTag.class, "物品改名卡");
+        loadModule(CleanChat.class, "加入清理聊天屏幕");
+        loadModule(AntiMushroomSpread.class, "防止末地蘑菇传播");
+
     }
 
     private void loadModule(Class<? extends Module> moduleClass, String moduleName) {

@@ -38,7 +38,7 @@ public class WorldRespawnPoint extends Module implements Listener {
                 if (locationConfig == null) continue;
 
                 String[] split = locationConfig.replaceAll("\\s*", "").split(",");
-                Location location = new Location(Bukkit.getWorld(split[0]), Double.parseDouble(split[1]), Double.parseDouble(split[2]), Double.parseDouble(split[3]), Float.parseFloat(split[4]), Float.parseFloat(split[5]));
+                Location location = new Location(world, Double.parseDouble(split[0]), Double.parseDouble(split[1]), Double.parseDouble(split[2]), Float.parseFloat(split[3]), Float.parseFloat(split[4]));
 
                 event.setRespawnLocation(location);
             }

@@ -3,6 +3,7 @@ package com.entiv.servertoolbox.module;
 import com.entiv.servertoolbox.Module;
 import com.entiv.servertoolbox.utils.CommandUtil;
 import com.entiv.servertoolbox.utils.ItemStackUtil;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -38,16 +39,16 @@ public class WorldItemBlacklist extends Module implements Listener {
     }
 
     @EventHandler
-    private void onPlayerChangeWorld(InventoryClickEvent event) {
+    private void onPlayerClick(InventoryClickEvent event) {
         final Player player = event.getWhoClicked() instanceof Player ? ((Player) event.getWhoClicked()) : null;
 
         if (player == null) return;
+        if (event.getClickedInventory() == null) return;
 
         final World world = player.getWorld();
-
         final List<String> worldList = config.getStringList("世界列表");
 
-        if (worldList.contains(world.getName()) && hasBlacklistItem(player)) {
+        if (worldList.contains(world.getName()) && isBlacklistItem(event.getCurrentItem())) {
             CommandUtil.execute(player, config.getStringList("执行指令"));
             event.setCancelled(true);
         }
@@ -70,5 +71,18 @@ public class WorldItemBlacklist extends Module implements Listener {
         }
 
         return false;
+    }
+
+    private boolean isBlacklistItem(ItemStack itemStack) {
+        final List<Material> list = config.getStringList("物品列表.id")
+                .stream()
+                .map(Material::matchMaterial)
+                .collect(Collectors.toList());
+
+        if (ItemStackUtil.isAir(itemStack)) {
+            return false;
+        }
+
+        return list.contains(itemStack.getType());
     }
 }

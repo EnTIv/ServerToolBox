@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.entiv'
-version '1.9.7'
+version '1.9.9'
 
 repositories {
 
@@ -62,14 +62,16 @@ dependencies {
     compileOnly 'fr.xephi:authme:5.6.0-SNAPSHOT'
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
     compileOnly "me.clip:placeholderapi:2.10.10"
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+
 //    compileOnly 'net.ess3:EssentialsX:2.17.2'
 //    compileOnly 'world.bentobox:bentobox:1.16.1-SNAPSHOT'
 //    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.6.0"
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
+
 //    compileOnly 'world.bentobox:bentobox:1.17.1'
 //    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
 //    compileOnly 'org.spigotmc:spigot-api:1.17-R0.1-SNAPSHOT'
 }
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-libsDirName = 'C:\\Users\\EnTIv\\Desktop\\minecraft\\server\\paper-1.17\\plugins'
+//libsDirName = 'C:\\Users\\EnTIv\\Desktop\\minecraft\\server\\paper-1.17\\plugins'

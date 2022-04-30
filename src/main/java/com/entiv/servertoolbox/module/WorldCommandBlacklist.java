@@ -37,13 +37,14 @@ public class WorldCommandBlacklist extends Module implements Listener {
                 continue;
             }
 
-            final List<String> blacklistCommand = section.getStringList(name);
+            final List<String> blacklistCommands = section.getStringList(name);
 
-            if (blacklistCommand.contains(event.getMessage())) {
-                event.setCancelled(true);
-                Message.send(player, config.getString("提示消息"));
+            for (String blacklistCommand : blacklistCommands) {
+                if (event.getMessage().contains(blacklistCommand)) {
+                    event.setCancelled(true);
+                    Message.send(player, config.getString("提示消息"));
+                }
             }
-
         }
     }
 }

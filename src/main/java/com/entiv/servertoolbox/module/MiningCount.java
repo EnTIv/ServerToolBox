@@ -28,9 +28,13 @@ public class MiningCount extends Module implements Listener {
         final Player player = event.getPlayer();
         final ItemStack itemStack = player.getInventory().getItemInMainHand();
 
+        Main.debug("您当前使用的工具为 {0}",itemStack.getType());
+
         for (String toolName : config.getStringList("需要计数的工具")) {
 
-            if (itemStack.getType().toString().contains("_"+toolName)) {
+            if (itemStack.getType().toString().contains("_" + toolName)) {
+
+                Main.debug("检测到可用工具");
 
                 final ItemMeta itemMeta = itemStack.getItemMeta();
                 final List<String> lore = itemMeta.getLore();
@@ -45,7 +49,6 @@ public class MiningCount extends Module implements Listener {
                     addLore.add(key.replace("%count%", "1"));
                     itemMeta.setLore(addLore);
                 } else {
-                    Main.debug("触发B");
 
                     for (int i = 0; i < lore.size(); i++) {
                         final String s = lore.get(i);
@@ -55,8 +58,6 @@ public class MiningCount extends Module implements Listener {
                         if (s.contains(key)) {
                             int finalI = i;
 
-                            Main.debug("触发A");
-
                             StringUtil.findInt(s).stream().findFirst().ifPresent(count -> {
                                 Main.debug("当前挖掘数量: {0}", count);
                                 lore.set(finalI, s.replace(String.valueOf(count), String.valueOf(count + 1)));
@@ -65,6 +66,7 @@ public class MiningCount extends Module implements Listener {
                         }
                     }
                 }
+
                 itemStack.setItemMeta(itemMeta);
             }
         }
