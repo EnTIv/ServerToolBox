@@ -35,9 +35,8 @@ public class ModuleManager {
         loadModule(AntiExplode.class, "爆炸保护");
         loadModule(FarmProtection.class, "农田防踩踏");
         loadModule(AutoTool.class, "自动化工具");
-        loadModule(FarmProtection.class, "农田防踩踏");
         loadModule(WorldItemBlacklist.class, "世界物品黑名单");
-        loadModule(FarmProtection.class, "反快速指令");
+        loadModule(CommandSpeedLimit.class, "反快速指令");
         loadModule(WorldItemBlacklist.class, "反聊天刷屏");
         loadModule(WorldCommandBlacklist.class, "世界指令黑名单");
         loadModule(KeywordFiltering.class, "违禁词屏蔽");
